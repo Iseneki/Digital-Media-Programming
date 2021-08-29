@@ -1,3 +1,2 @@
-# Javascript
-
- Digital Media Programming
+# Digital Media Programming
+Javascript
