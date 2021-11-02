@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,600,700);
+
 html {
     font-size: 62.5%;
     box-sizing: border-box
@@ -359,7 +360,7 @@ em {
     opacity: .8/*.product-name*/
 }
 
-#products .product-list .product-item .product-name {
+#products .product-list .product-name {
     background: #d14348;
     color: #f3d350;
     font-weight: 700;

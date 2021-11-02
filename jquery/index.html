@@ -8,31 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        $(function () {
-            $("#products h2.product-name[data-type='mineralwater']").css("background-color", "blue");
-            $("#products h2.product-name[data-type='vitamin']").css("background-color", "gray");
-            $("#products h2.product-name[data-type='proteinbar']").css("background-color", "brown");
-
-            document.querySelector('#cbVitamins').addEventListener('change',function (evt) {
-                updateProductView("vitamins", evt.target.checked);
-            });
-            document.querySelector('#cbMineralWater').addEventListener('change',function (evt) {
-                updateProductView("mineralwater", evt.target.checked);
-            });
-            document.querySelector('#cbProtein').addEventListener('change',function (evt) {
-                updateProductView("proteinbar", evt.target.checked);
-            });
-
-            $(".product-item").each(function () {
-                var prodName = encodeURIComponent($(this).children("h2").text());
-                var prodID = encodeURIComponent($(this).data("prod_id"));
-
-                var link = $("<a href='product.html?prodName=" + prodName + "&prodID=" + prodID + "'/>");
-                $(this).children("img").wrap(link);
-            })
-            
-        })
-
         function updateProductView(categoryName, bVisible) {
             // get a list of the product items for the given category.
             // Use the data attributes to narrow the list
@@ -116,7 +91,9 @@
                 </div>
             </form>
         </div>
-        <ul class="product-list">
+        
+        <ul class="product-list" data-group="productitem">
+
             <li class="product-item" data-prod_id="V-A1037">
                 <img class="product-image" src="images/products/vitamin-a.jpg" alt="Vitamin A - Product Photo">
                 <h2 class="product-name" data-type="vitamin">Vitamin A</h2>
@@ -189,8 +166,23 @@
                 <img class="product-image" src="images/products/mineralwater-raspberry.jpg" alt="Mineral Water Raspberry - Product Photo">
                 <h2 class="product-name" data-type="mineralwater">Raspberry Mineral Water</h2>
             </li>
+
         </ul>
         <!-- product-list -->
+
+        <script>
+            $(document).ready(function() {
+      
+                let group = $('ul[data-group="productitem"]');
+      
+                let vitamin = $('[data-type="vitamin"]', group).css('background-color', 'gray');
+      
+                let mineralwater = $('[data-type="mineralwater"]', group).css('background-color', 'aqua');
+      
+                let proteinbar = $('[data-type="proteinbar"]', group).css('background-color', 'darkbrown');
+              });
+          </script>
+
     </section>
     <!-- #products -->
 
